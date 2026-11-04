@@ -491,6 +491,425 @@ h3,
   color: var(--muted);
 }
 
+/* 2b. HERO BRIDGE: draws itself from Learning to Real-World Experience */
+.bridge {
+  --h: 120px; /* height of the drawing; the deck sits at 100/120 of it */
+  --deck: calc(var(--h) * 0.8333);
+  --node: 30px;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: var(--node) 1fr var(--node);
+  padding-bottom: 40px;
+  margin-top: -12px;
+}
+.bridge-end {
+  position: relative;
+  padding-top: calc(var(--deck) - var(--node) / 2);
+}
+.b-node {
+  display: block;
+  width: var(--node);
+  height: var(--node);
+  border-radius: 50%;
+  border: 5px solid var(--green);
+  background: var(--lavender);
+  position: relative;
+  z-index: 1;
+}
+.bridge-finish .b-node {
+  background: var(--indigo);
+}
+.b-label {
+  position: absolute;
+  top: calc(var(--deck) + var(--node) / 2 + 10px);
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  letter-spacing: -0.02em;
+}
+.bridge-start .b-label {
+  left: 0;
+}
+.bridge-finish .b-label {
+  right: 0;
+  color: var(--green-text);
+}
+.bridge-span {
+  position: relative;
+  height: var(--h);
+  margin-inline: -2px;
+}
+.b-build {
+  position: absolute;
+  inset: 0;
+}
+.bridge-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.bridge-svg path,
+.bridge-svg line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.b-deck {
+  stroke: var(--indigo);
+  stroke-width: 5;
+}
+.b-arch {
+  stroke: var(--green);
+  stroke-width: 4;
+}
+.b-cables line {
+  stroke: var(--indigo);
+  stroke-width: 1.5;
+  opacity: 0.35;
+}
+.b-stops {
+  list-style: none;
+}
+.b-stops li {
+  position: absolute;
+  left: var(--x);
+  bottom: calc(var(--h) - var(--deck) - 10px);
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  white-space: nowrap;
+  line-height: 1;
+}
+.b-stops span {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+.b-stops li::before {
+  order: 2;
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid var(--lavender);
+  box-sizing: content-box;
+  margin-top: -3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bridge-start .b-node {
+    animation: pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+  }
+  .b-build {
+    animation: build 1.8s 0.3s linear both;
+  }
+  .b-cables line {
+    animation: fade-in 0.4s calc(2.1s + var(--i) * 0.06s) both;
+  }
+  .b-stops li {
+    animation: rise 0.45s var(--d) cubic-bezier(0.3, 1.4, 0.5, 1) both;
+  }
+  .bridge-finish .b-node {
+    animation:
+      pop 0.5s 2.05s cubic-bezier(0.3, 1.6, 0.5, 1) both,
+      arrive 1.2s 2.4s ease-out;
+  }
+  .b-label {
+    animation: fade-in 0.6s 0.2s both;
+  }
+  .bridge-finish .b-label {
+    animation-delay: 2.3s;
+  }
+}
+@keyframes build {
+  from {
+    clip-path: inset(-20px 100% -20px 0);
+  }
+  to {
+    clip-path: inset(-20px 0 -20px 0);
+  }
+}
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes arrive {
+  from {
+    box-shadow: 0 0 0 0 rgb(57 184 10 / 0.55);
+  }
+  to {
+    box-shadow: 0 0 0 22px rgb(57 184 10 / 0);
+  }
+}
+
+/* 4b. PROGRAM DEMOS (pure CSS)
+   The demos build themselves as they scroll into view, using CSS
+   scroll-driven animations. Browsers without support, and visitors who
+   prefer reduced motion, see the finished demo. */
+.demo {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 1px 0 var(--line), 0 12px 30px -18px rgb(13 0 77 / 0.35);
+}
+.demo-bar {
+  margin-bottom: 10px;
+}
+.demo-file {
+  font: 500 0.8125rem/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color: var(--muted);
+}
+
+/* Data Analytics chart */
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.chart .grid path {
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+.chart .bars rect {
+  fill: var(--indigo);
+  opacity: 0.85;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.chart .bars .bar-top {
+  fill: var(--green);
+  opacity: 1;
+}
+.chart .trend {
+  fill: none;
+  stroke: var(--green-text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+.chart .trend-dot {
+  fill: var(--white);
+  stroke: var(--green-text);
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.chart .months text {
+  font: 500 11px var(--text);
+  fill: var(--muted);
+  text-anchor: middle;
+}
+.insight {
+  margin-top: 8px;
+  font-size: 0.9375rem !important;
+  color: var(--muted);
+}
+.insight strong {
+  color: var(--green-text);
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.125rem;
+}
+
+/* Web Development: code + live preview */
+.demo-web {
+  container-type: inline-size;
+}
+.web-panes {
+  display: grid;
+  gap: 12px;
+}
+@container (min-width: 560px) {
+  .web-panes {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}
+.code {
+  background: var(--indigo);
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font: 400 0.78rem/1.65 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  overflow-x: auto;
+  white-space: pre;
+}
+.code .line {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  width: calc(var(--n) * 1ch);
+}
+.code .t {
+  color: var(--green-soft);
+}
+.code .a {
+  color: #b9b0ff;
+}
+.code .v {
+  color: #ffd27a;
+}
+.preview {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--white);
+}
+.browser-dots {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+  background: var(--lavender);
+  border-bottom: 1px solid var(--line);
+}
+.browser-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.page {
+  padding: 12px 14px 16px;
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-height: 150px;
+}
+.pv-nav {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+.pv-h1 {
+  font: 900 1.35rem/1.1 var(--display) !important;
+  letter-spacing: -0.02em;
+}
+.pv-p {
+  font-size: 0.875rem !important;
+  color: var(--muted);
+}
+.pv-btn {
+  justify-self: start;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  background: var(--green);
+  color: var(--indigo);
+  border-radius: 999px;
+}
+
+/* Scroll-driven animation */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .demo {
+      view-timeline: --demo block;
+    }
+    .demo * {
+      animation-timeline: --demo;
+      animation-fill-mode: both;
+      animation-duration: auto;
+    }
+    /* chart */
+    .chart .bars rect {
+      animation-name: grow;
+      animation-timing-function: cubic-bezier(0.3, 1.3, 0.5, 1);
+      animation-range: cover calc(8% + var(--i) * 3%) cover calc(18% + var(--i) * 3%);
+    }
+    .chart .trend {
+      animation-name: draw;
+      animation-range: cover 22% cover 32%;
+    }
+    .chart .trend-dot {
+      animation-name: dot-pop;
+      animation-range: cover 32% cover 35%;
+    }
+    .insight {
+      animation-name: show-up;
+      animation-range: cover 33% cover 38%;
+    }
+    /* code typing: each line types out over its own slice of the scroll */
+    .code .line {
+      animation-name: type;
+      animation-timing-function: steps(var(--n), end);
+      animation-range: cover var(--s) cover var(--e);
+    }
+    /* the preview gains each element as its line finishes */
+    .page [data-show] {
+      animation-name: show-up;
+      animation-range: cover var(--at) cover calc(var(--at) + 3%);
+    }
+    .page .pv-btn {
+      animation-name: show-up, style-btn;
+      animation-range:
+        cover var(--at) cover calc(var(--at) + 3%),
+        cover var(--styled) cover calc(var(--styled) + 3%);
+    }
+  }
+}
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dot-pop {
+  from {
+    transform: scale(0);
+  }
+}
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes type {
+  from {
+    width: 0;
+  }
+}
+@keyframes style-btn {
+  from {
+    background: #e4e4e9;
+    color: #333;
+    border-radius: 6px;
+  }
+}
+
 /* TABLET */
 @media (max-width: 980px) {
   .hero {
@@ -618,6 +1037,17 @@ h3,
   .card {
     min-height: 230px;
   }
+  .bridge {
+    --h: 84px;
+    --node: 24px;
+    padding-bottom: 34px;
+  }
+  .b-node {
+    border-width: 4px;
+  }
+  .b-stops span {
+    display: none;
+  }
   .internship {
     padding-block: 56px;
   }
@@ -647,5 +1077,59 @@ h3,
   .tile,
   .card {
     border: 2px solid CanvasText;
+  }
+}
+
+/* Program cards with demos: keep content at the top, link at the bottom */
+.card {
+  justify-content: flex-start;
+}
+.card .link {
+  margin-top: auto;
+}
+
+/* TABLET + PHONE: centre the content (desktop keeps its left-aligned layout) */
+@media (max-width: 980px) {
+  .hero-text,
+  .tile,
+  .about > div,
+  .section-title,
+  .card,
+  .internship,
+  .steps li,
+  .comm-in,
+  .site-footer,
+  .drawer a {
+    text-align: center;
+  }
+  .lede,
+  .card p,
+  .comm-in p {
+    margin-inline: auto;
+  }
+  .actions,
+  .comm-in {
+    justify-content: center;
+  }
+  .tile-main {
+    justify-content: center;
+  }
+  .card {
+    align-items: center;
+  }
+  .card > .demo {
+    align-self: stretch;
+    text-align: left;
+  }
+  .checks {
+    margin-inline: auto;
+    width: fit-content;
+    text-align: left;
+  }
+  .num {
+    margin-inline: auto;
+  }
+  .foot > div {
+    justify-items: center;
   }
 }

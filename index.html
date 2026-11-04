@@ -35,8 +35,7 @@
         <nav class="nav-right" aria-label="Secondary">
           <a href="#community">Community</a><a href="#contact">Contact</a>
         </nav>
-        <!-- TODO: replace # with the official TechBridge Internship Application Form link -->
-        <a class="btn btn-sm" href="#apply">Apply now</a>
+        <a class="btn btn-sm" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
       </div>
     </div>
     <nav class="drawer" id="drawer" aria-label="Mobile">
@@ -52,9 +51,9 @@
         <p class="eyebrow">TechBridge by Baselink Services Limited</p>
         <h1>Bridging Learning to <span>Real-World Experience</span></h1>
         <p class="lede">
-          TechBridge gives learners and aspiring interns practical,
-          project-based experience in Data Analytics and Web Development. In other words
-          you Gain practical industry experience through project-driven programs.
+          TechBridge gives learners and aspiring interns hands-on, project-based
+          experience in Data Analytics and Web Development, so you finish with
+          real work to show, not just theory.
         </p>
         <div class="actions">
           <a class="btn" href="#apply">Apply for the internship</a>
@@ -77,6 +76,43 @@
         <div class="tile tile-lilac">
           <p class="eyebrow">Program</p>
           <p class="tile-title">Web Development</p>
+        </div>
+      </div>
+
+      <!-- Animated bridge: Learning to Real-World Experience -->
+      <div class="bridge" role="img"
+        aria-label="A bridge from Learning to Real-World Experience, crossing through projects, mentorship and the internship">
+        <div class="bridge-end bridge-start">
+          <span class="b-node"></span>
+          <span class="b-label">Learning</span>
+        </div>
+        <div class="bridge-span">
+          <div class="b-build">
+            <svg class="bridge-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+              <g class="b-cables">
+                <line x1="100" y1="78.4" x2="100" y2="100" style="--i:0" />
+                <line x1="200" y1="61.6" x2="200" y2="100" style="--i:1" />
+                <line x1="300" y1="49.6" x2="300" y2="100" style="--i:2" />
+                <line x1="400" y1="42.4" x2="400" y2="100" style="--i:3" />
+                <line x1="500" y1="40.0" x2="500" y2="100" style="--i:4" />
+                <line x1="600" y1="42.4" x2="600" y2="100" style="--i:5" />
+                <line x1="700" y1="49.6" x2="700" y2="100" style="--i:6" />
+                <line x1="800" y1="61.6" x2="800" y2="100" style="--i:7" />
+                <line x1="900" y1="78.4" x2="900" y2="100" style="--i:8" />
+              </g>
+              <path class="b-arch" d="M0 100Q500-20 1000 100" />
+              <path class="b-deck" d="M0 100H1000" />
+            </svg>
+          </div>
+          <ul class="b-stops">
+            <li style="--x:25%;--d:0.75s"><span>Projects</span></li>
+            <li style="--x:50%;--d:1.2s"><span>Mentorship</span></li>
+            <li style="--x:75%;--d:1.65s"><span>Internship</span></li>
+          </ul>
+        </div>
+        <div class="bridge-end bridge-finish">
+          <span class="b-node"></span>
+          <span class="b-label">Real-World Experience</span>
         </div>
       </div>
     </section>
@@ -122,19 +158,70 @@
         <article class="card card-green">
           <h3>Data Analytics</h3>
           <p>
-            Learn data analysis, visualization and insights generation -
-            Learn to read, organise and question data so it can answer real
-            questions.
+            Learn to clean, analyse and visualise data, then turn it into
+            insights that answer real questions.
           </p>
+
+          <!-- Live demo: a chart that builds itself -->
+          <div class="demo demo-data">
+            <div class="demo-bar">
+              <span class="demo-file">signups.csv &rarr; chart</span>
+            </div>
+            <svg class="chart" viewBox="0 0 300 150" role="img"
+              aria-label="Bar chart of monthly sign-ups from January to June, rising from 40 to 96, an increase of 140 percent">
+              <g class="grid" aria-hidden="true">
+                <path d="M10 118H290M10 78H290M10 38H290" />
+              </g>
+              <g class="bars">
+                <rect x="18" y="78" width="30" height="40" rx="5" style="--i:0" />
+                <rect x="64" y="63" width="30" height="55" rx="5" style="--i:1" />
+                <rect x="110" y="70" width="30" height="48" rx="5" style="--i:2" />
+                <rect x="156" y="50" width="30" height="68" rx="5" style="--i:3" />
+                <rect x="202" y="38" width="30" height="80" rx="5" style="--i:4" />
+                <rect class="bar-top" x="248" y="22" width="30" height="96" rx="5" style="--i:5" />
+              </g>
+              <polyline class="trend" pathLength="1" points="33,78 79,63 125,70 171,50 217,38 263,22" />
+              <circle class="trend-dot" cx="263" cy="22" r="5" />
+              <g class="months" aria-hidden="true">
+                <text x="33" y="138">Jan</text><text x="79" y="138">Feb</text><text x="125" y="138">Mar</text>
+                <text x="171" y="138">Apr</text><text x="217" y="138">May</text><text x="263" y="138">Jun</text>
+              </g>
+            </svg>
+            <p class="insight"><strong>+140%</strong> sign-ups since January</p>
+          </div>
           <a class="link" href="#apply">How to apply</a>
         </article>
         <article class="card card-lilac">
           <h3>Web Development</h3>
           <p>
-            Build responsive websites and practical web applications-
-            Learn to design, build and publish web pages that people can
-            actually use.
+            Learn to design, build and publish responsive websites and web apps
+            that people actually use.
           </p>
+
+          <!-- Live demo: code types itself, then becomes a page -->
+          <div class="demo demo-web">
+            <div class="demo-bar">
+              <span class="demo-file">index.html</span>
+            </div>
+            <div class="web-panes">
+              <pre class="code"><span class="line" style="--n:23;--s:8.0%;--e:14.15%"><span class="t">&lt;nav&gt;</span>My Portfolio<span class="t">&lt;/nav&gt;</span></span>
+<span class="line" style="--n:21;--s:14.15%;--e:19.77%"><span class="t">&lt;h1&gt;</span>Hi, I'm Ada.<span class="t">&lt;/h1&gt;</span></span>
+<span class="line" style="--n:27;--s:19.77%;--e:27.0%"><span class="t">&lt;p&gt;</span>I build for the web.<span class="t">&lt;/p&gt;</span></span>
+<span class="line" style="--n:24;--s:27.0%;--e:33.42%"><span class="t">&lt;button&gt;</span>Hire me<span class="t">&lt;/button&gt;</span></span>
+<span class="line" style="--n:7;--s:33.42%;--e:35.3%"><span class="t">&lt;style&gt;</span></span>
+<span class="line" style="--n:32;--s:35.3%;--e:43.86%">  button { <span class="a">background</span>: <span class="v">#39b80a</span> }</span>
+<span class="line" style="--n:8;--s:43.86%;--e:46.0%"><span class="t">&lt;/style&gt;</span></span></pre>
+              <div class="preview">
+                <div class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="page">
+                  <div class="pv-nav" data-show="nav" style="--at:14.15%">My Portfolio</div>
+                  <p class="pv-h1" data-show="h1" style="--at:19.77%">Hi, I'm Ada.</p>
+                  <p class="pv-p" data-show="p" style="--at:27.0%">I build for the web.</p>
+                  <span class="pv-btn" data-show="btn" style="--at:33.42%;--styled:43.86%">Hire me</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <a class="link link-navy" href="#apply">How to apply</a>
         </article>
       </div>
