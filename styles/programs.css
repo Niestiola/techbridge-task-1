@@ -1,0 +1,598 @@
+/* TechBridge: Programs page
+   Loads AFTER style.css and reuses its colours, fonts, header, buttons and footer.
+   This file only holds what is specific to the Programs page.
+   Written mobile-first: the base rules are for phones, and min-width queries add the rest. */
+
+/* ---------- HELPERS ----------
+   Small tools used by the sections below. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* A white outlined button for use on the dark indigo section */
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 28px;
+}
+.btn-ghost:hover {
+  background: #fff;
+  color: var(--indigo);
+}
+
+/* ---------- SECTION SPACING ----------
+   Shared padding for the white and lavender sections. */
+.p-section {
+  padding: 56px var(--pad);
+}
+.p-section--tight {
+  padding-top: 8px;
+}
+.page-programs .section-title {
+  margin-top: 10px;
+  text-align: left; /* style.css centres section titles on small screens */
+}
+.p-intro {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+/* ---------- 2. HERO ----------
+   The first section: text on one side, a chart-and-code illustration on the other. */
+.p-hero {
+  background: var(--lavender);
+  padding: 44px var(--pad) 56px;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+.p-hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin-top: 16px;
+}
+.p-hero h1 span {
+  color: var(--green-text);
+}
+/* style.css centres .lede and .actions on small screens; keep this page left-aligned */
+.page-programs .lede {
+  margin-inline: 0;
+}
+.page-programs .actions {
+  justify-content: flex-start;
+}
+
+/* The illustration: a chart card and a code window that overlap. No image files needed. */
+.hero-visual {
+  position: relative;
+  height: 290px;
+}
+.vis-chart,
+.vis-code {
+  position: absolute;
+  border-radius: 22px;
+  padding: 18px;
+}
+.vis-tag {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.vis-chart {
+  left: 0;
+  top: 0;
+  width: 64%;
+  height: 64%;
+  background: var(--green-card);
+  display: flex;
+  flex-direction: column;
+}
+.vis-chart .vis-tag {
+  color: var(--green-text);
+}
+.bars {
+  flex: 1;
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7%;
+  border-bottom: 3px solid var(--indigo);
+}
+.bars span {
+  flex: 1;
+  background: var(--green);
+  border-radius: 6px 6px 0 0;
+}
+.bars span:nth-child(even) {
+  background: var(--indigo);
+}
+.bars span:nth-child(1) { height: 40%; }
+.bars span:nth-child(2) { height: 70%; }
+.bars span:nth-child(3) { height: 55%; }
+.bars span:nth-child(4) { height: 95%; }
+.bars span:nth-child(5) { height: 75%; }
+
+.vis-code {
+  right: 0;
+  top: 26%;
+  width: 68%;
+  height: 70%;
+  background: var(--indigo);
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 28px 44px -28px rgb(13 0 77 / 0.7);
+}
+.dots {
+  display: flex;
+  gap: 6px;
+  padding: 11px 14px;
+  background: #1c0a6b;
+}
+.dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.dots i:nth-child(2) { background: var(--green-soft); }
+.dots i:nth-child(3) { background: var(--lilac); }
+.lines {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+.lines span {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  width: var(--w);
+  margin-left: var(--m, 0);
+  background: var(--lilac);
+}
+.lines span:nth-child(1) { --w: 55%; background: var(--green); }
+.lines span:nth-child(2) { --w: 80%; --m: 8%; }
+.lines span:nth-child(3) { --w: 60%; --m: 8%; background: var(--green-soft); }
+.lines span:nth-child(4) { --w: 70%; --m: 16%; }
+.lines span:nth-child(5) { --w: 40%; background: var(--green); }
+.lines span:nth-child(6) { --w: 65%; --m: 8%; }
+.lines span:nth-child(7) { --w: 35%; background: var(--green-soft); }
+.vis-code .vis-tag {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  color: var(--green-soft);
+}
+
+/* ---------- 3. PROGRAM OVERVIEW ----------
+   Two equal cards, one per program. Green for Data Analytics, purple for Web Development. */
+.paths {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+.path {
+  border-radius: var(--radius);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.path--data {
+  background: var(--green-card);
+}
+.path--web {
+  background: var(--lilac-card);
+}
+.path-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.path-label .eyebrow {
+  font-size: 0.75rem;
+}
+.path--web .eyebrow {
+  color: var(--indigo);
+}
+.path h3 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+}
+.path-desc {
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+.mini {
+  font-family: var(--text);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips li {
+  background: var(--white);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.path-outcome {
+  font-weight: 500;
+}
+.path .link {
+  margin-top: auto;
+}
+
+/* Hover and focus: the card gets a shadow and lifts a little (lifting only if motion is allowed) */
+.path,
+.choice {
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+.path:hover,
+.path:focus-within {
+  box-shadow: 0 22px 40px -26px rgb(13 0 77 / 0.5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .path {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .path:hover,
+  .path:focus-within {
+    transform: translateY(-4px);
+  }
+}
+
+/* ---------- 4. DETAILS ----------
+   The boxes of expandable skills. Each skill is a details tag with a plus or minus button. */
+.skills {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+.skill-group {
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.skill-group--data {
+  background: var(--green-card);
+}
+.skill-group--web {
+  background: var(--lilac-card);
+}
+/* Reached from a Learn more link: show which one it is */
+.skill-group:target {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+.skill-group h3 {
+  font-size: 1.625rem;
+  margin-bottom: 8px;
+}
+.skill {
+  border-top: 1px solid rgb(13 0 77 / 0.16);
+}
+.skill summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+.skill summary::-webkit-details-marker {
+  display: none;
+}
+.skill summary::after {
+  content: "+";
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  font: 700 1.25rem/1 var(--text);
+}
+.skill[open] summary::after {
+  content: "\2212";
+}
+.skill summary:hover::after {
+  background: var(--green);
+}
+.skill p {
+  color: var(--muted);
+  max-width: 48ch;
+  padding-bottom: 16px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skill[open] p {
+    animation: reveal 0.25s ease-out;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* ---------- 5. COMPARISON ----------
+   Phones: two stacked cards. Desktop: a table-like grid with the rows lined up. */
+.p-compare {
+  background: var(--lavender);
+}
+.compare {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+.compare-labels {
+  display: none;
+}
+.compare-col {
+  border-radius: 24px;
+  padding: 24px;
+}
+.compare-col--data {
+  background: var(--green-card);
+}
+.compare-col--web {
+  background: var(--lilac-card);
+}
+.compare-col h3 {
+  font-size: 1.625rem;
+  margin-bottom: 8px;
+}
+.compare-col .row {
+  padding: 12px 0;
+  border-top: 1px solid rgb(13 0 77 / 0.16);
+}
+.compare-col dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* ---------- 6. HELP VISITORS CHOOSE ----------
+   Two outlined boxes, each with a question and a button. */
+.choices {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+.choice {
+  border: 2px solid var(--indigo);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+.choice:hover {
+  background: var(--lavender);
+}
+.choice p {
+  font: 900 1.375rem/1.2 var(--display);
+  letter-spacing: -0.02em;
+}
+.choice .btn {
+  text-align: center;
+}
+
+/* ---------- 7. FINAL CALL TO ACTION ----------
+   The dark closing section with the apply button. */
+.p-cta {
+  background: var(--indigo);
+  color: #fff;
+  padding: 64px var(--pad);
+  text-align: center;
+}
+.p-cta h2 {
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+}
+.p-cta p {
+  color: var(--line);
+  font-size: 1.125rem;
+  max-width: 46ch;
+  margin: 18px auto 0;
+}
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* ---------- 8. FOOTER ON PHONES ----------
+   Logo on top, then Contact (left) and Explore (right column), both left-aligned. */
+.page-programs .foot {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+}
+.page-programs .foot > div:nth-child(2) {
+  justify-items: start;
+  text-align: left;
+}
+.page-programs .foot > div:nth-child(3) {
+  justify-items: start;
+  text-align: left;
+}
+.page-programs .legal {
+  text-align: left;
+}
+
+/* ================= TABLET AND UP =================
+   More room: bigger illustration, two-column cards, buttons side by side. */
+@media (min-width: 640px) {
+  .hero-visual {
+    height: 400px;
+  }
+  .vis-chart,
+  .vis-code {
+    padding: 24px;
+  }
+  .vis-code {
+    padding: 0;
+  }
+  .lines {
+    gap: 14px;
+    padding: 22px;
+  }
+  .cta-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 761px) {
+  .p-section {
+    padding: 88px var(--pad);
+  }
+  .p-section--tight {
+    padding-top: 8px;
+  }
+  .paths,
+  .skills,
+  .choices {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .path {
+    padding: clamp(28px, 3.4vw, 40px);
+  }
+  .skill-group {
+    padding: 32px;
+  }
+  .choice {
+    padding: 40px;
+    align-items: flex-start;
+  }
+  .choice .btn {
+    text-align: left;
+  }
+  .p-cta {
+    padding: 96px var(--pad);
+  }
+  /* Footer: back to three equal-ish columns, left aligned like the homepage */
+  .page-programs .foot {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+/* ================= DESKTOP =================
+   Two-column hero and the comparison becomes a table-like grid. */
+@media (min-width: 980px) {
+  .p-hero {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    padding-block: 80px 96px;
+  }
+  .hero-visual {
+    height: 440px;
+  }
+  .p-section {
+    padding-block: 112px;
+  }
+  .p-section--tight {
+    padding-top: 8px;
+  }
+
+  /* Comparison becomes a table-like grid. Subgrid keeps rows aligned across columns. */
+  .compare {
+    grid-template-columns: 150px 1fr 1fr;
+    grid-template-rows: auto repeat(4, auto);
+    gap: 0;
+    margin-top: 48px;
+  }
+  .compare-labels {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    grid-template-rows: subgrid;
+  }
+  .compare-labels span {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .compare-labels span:first-child {
+    border-top: 0;
+  }
+  .compare-col {
+    grid-row: 1 / span 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    background: none;
+    border-radius: 0;
+    padding: 0 24px;
+  }
+  .compare-col--data {
+    grid-column: 2;
+  }
+  .compare-col--web {
+    grid-column: 3;
+  }
+  .compare-col h3 {
+    font-size: 1.75rem;
+    margin: 0;
+    padding-bottom: 20px;
+    align-self: end;
+  }
+  .compare-col--data h3 {
+    color: var(--green-text);
+  }
+  .compare-col dl {
+    grid-row: 2 / span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+  }
+  .compare-col .row {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  /* the left column shows the labels; keep each dt for screen readers only */
+  .compare-col dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+/* High contrast mode: give the cards a visible edge */
+@media (forced-colors: active) {
+  .path,
+  .skill-group,
+  .compare-col,
+  .vis-chart,
+  .vis-code {
+    border: 2px solid CanvasText;
+  }
+}

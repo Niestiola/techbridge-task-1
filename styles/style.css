@@ -1,11 +1,15 @@
 /* TechBridge styles
    Colours come from the logo: indigo + green.
-   Layout: CSS Grid for every section. */
+   Layout: CSS Grid for every section.
+   Used by index.html and programs.html (programs.css adds the Programs page extras). */
 
+/* ---------- VARIABLES ----------
+   The colours, fonts and spacing used everywhere.
+   Change a value here and it changes across the whole site. */
 :root {
   --indigo: #0d004d;
   --green: #39b80a;
-  --green-text: #267d06;
+  --green-text: #267d06; /* darker green: readable on light backgrounds */
   --green-soft: #8fe06c;
   --lavender: #f4f3fb;
   --lilac: #e6e3f7;
@@ -16,10 +20,13 @@
   --white: #fff;
   --display: "Red Hat Display", system-ui, "Segoe UI", Arial, sans-serif;
   --text: "Hanken Grotesk", system-ui, "Segoe UI", Arial, sans-serif;
-  --pad: clamp(20px, 5.5vw, 80px);
+  --pad: clamp(20px, 5.5vw, 80px); /* side spacing of the page */
   --radius: 28px;
   color-scheme: light;
 }
+
+/* ---------- RESET ----------
+   Removes the browser's default spacing so every element starts the same. */
 *,
 *::before,
 *::after {
@@ -28,9 +35,11 @@
   padding: 0;
 }
 
+/* ---------- BASE ----------
+   Page-wide settings: smooth scrolling, body text, images, links, keyboard focus. */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 90px; /* keeps the sticky header from covering section titles */
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -55,6 +64,31 @@ a {
   outline: 3px solid var(--green);
   outline-offset: 3px;
 }
+
+/* ---------- REUSABLE PATTERNS ----------
+   Small HTML/CSS helpers that reduce repeated layout code across pages. */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 48px;
+}
+.feature {
+  display: grid;
+  gap: 12px;
+}
+.feature h2 {
+  font-size: 1.625rem;
+  margin: 0;
+}
+.feature p {
+  color: var(--muted);
+}
+/* Skip link: hidden until you press Tab */
 .skip {
   position: absolute;
   left: -999px;
@@ -69,6 +103,8 @@ a {
   left: 8px;
 }
 
+/* ---------- TYPE ----------
+   Headings use the display font; the small green label above headings is the eyebrow. */
 h1,
 h2,
 h3,
@@ -92,7 +128,8 @@ h3,
   font-size: clamp(2rem, 4vw, 3.25rem);
 }
 
-/* Buttons */
+/* ---------- BUTTONS ----------
+   One .btn class makes every button. The other classes are small variations. */
 .btn {
   display: inline-block;
   background: var(--green);
@@ -146,7 +183,9 @@ h3,
   }
 }
 
-/* 1. HEADER: three columns, logo in the middle */
+/* ---------- 1. HEADER ----------
+   The top bar, shared by every page. Three columns: left links, logo in the middle,
+   right links and the Apply now button. It stays at the top while you scroll. */
 .site-header {
   position: sticky;
   top: 0;
@@ -158,9 +197,10 @@ h3,
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 32px;
+  gap: clamp(16px, 2vw, 32px);
   padding: 22px var(--pad) 26px;
 }
+/* The thin line under the header... */
 .bar::after {
   content: "";
   position: absolute;
@@ -170,6 +210,7 @@ h3,
   height: 1px;
   background: var(--line);
 }
+/* ...and the small green circle in its middle (it echoes the logo) */
 .bar::before {
   content: "";
   position: absolute;
@@ -186,7 +227,7 @@ h3,
 .nav-left,
 .nav-right {
   display: flex;
-  gap: 34px;
+  gap: clamp(18px, 2.3vw, 34px);
   font-size: 0.9375rem;
   font-weight: 500;
 }
@@ -199,12 +240,23 @@ h3,
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+/* The link for the page you are on (set with aria-current="page" in the HTML) */
+.nav-left a[aria-current="page"] {
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--green);
+  text-decoration: none;
+}
+.drawer a[aria-current="page"] {
+  color: var(--green-text);
+}
 .right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 34px;
+  gap: clamp(18px, 2.3vw, 34px);
 }
+/* The menu icon, menu list and checkbox only appear on smaller screens */
 .menu-btn,
 .drawer {
   display: none;
@@ -213,7 +265,9 @@ h3,
   display: none;
 }
 
-/* 2. HERO: two columns */
+/* ---------- 2. HERO ----------
+   The first section. Two columns: text on the left, tiles on the right.
+   The bridge (see section 2b) spans the full width underneath. */
 .hero {
   background: var(--lavender);
   padding: 80px var(--pad) 88px;
@@ -241,6 +295,10 @@ h3,
   gap: 16px;
   margin-top: 32px;
 }
+.btn-row {
+  margin-top: 32px;
+}
+/* The three coloured tiles. The internship tile is as tall as the other two together. */
 .tiles {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -290,7 +348,9 @@ h3,
   line-height: 1;
 }
 
-/* 3. ABOUT: auto-fit columns */
+/* ---------- 3. ABOUT ----------
+   Three short blocks side by side. auto-fit means: as many columns as fit,
+   so it becomes one column on a phone with no extra code. */
 .about {
   padding: 96px var(--pad);
   display: grid;
@@ -304,8 +364,12 @@ h3,
 .about p {
   color: var(--muted);
 }
+.feature-grid {
+  gap: 48px;
+}
 
-/* 4. PROGRAMS: two cards */
+/* ---------- 4. PROGRAMS ----------
+   The two program cards. They sit side by side and stack when there is no room. */
 .programs {
   padding: 0 var(--pad) 112px;
 }
@@ -338,7 +402,8 @@ h3,
   background: var(--lilac-card);
 }
 
-/* 5. INTERNSHIP: indigo band */
+/* ---------- 5. INTERNSHIP ----------
+   The dark indigo band. Text and benefits on the left, a big "30 days" box on the right. */
 .internship {
   background: var(--indigo);
   color: #fff;
@@ -388,7 +453,8 @@ h3,
   font-size: 2.25rem;
 }
 
-/* 6. HOW TO APPLY: three steps */
+/* ---------- 6. HOW TO APPLY ----------
+   Three numbered steps in a row. Each has a green number circle. */
 .apply {
   padding: 112px var(--pad);
 }
@@ -426,7 +492,9 @@ h3,
   overflow-wrap: anywhere;
 }
 
-/* 7. COMMUNITY */
+/* ---------- 7. COMMUNITY ----------
+   A green panel with the WhatsApp button. Flexbox: text and button in one row,
+   and the button drops below when there is no room. */
 .community {
   padding: 0 var(--pad) 112px;
 }
@@ -450,7 +518,8 @@ h3,
   color: var(--muted);
 }
 
-/* 8. FOOTER: three columns */
+/* ---------- 8. FOOTER ----------
+   Three columns: logo and tagline, contact details, quick links. */
 .site-footer {
   background: var(--lavender);
   padding: 56px var(--pad) 32px;
@@ -491,7 +560,9 @@ h3,
   color: var(--muted);
 }
 
-/* 2b. HERO BRIDGE: draws itself from Learning to Real-World Experience */
+/* ---------- 2b. HERO BRIDGE ----------
+   The animated bridge under the hero. It draws itself from "Learning" to
+   "Real-World Experience". Visitors who prefer reduced motion see the finished bridge. */
 .bridge {
   --h: 120px; /* height of the drawing; the deck sits at 100/120 of it */
   --deck: calc(var(--h) * 0.8333);
@@ -569,6 +640,7 @@ h3,
   stroke-width: 1.5;
   opacity: 0.35;
 }
+/* The three stops on the bridge: Projects, Mentorship, Internship */
 .b-stops {
   list-style: none;
 }
@@ -606,6 +678,7 @@ h3,
   margin-top: -3px;
 }
 
+/* The bridge animation (only for visitors who allow motion) */
 @media (prefers-reduced-motion: no-preference) {
   .bridge-start .b-node {
     animation: pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
@@ -664,25 +737,32 @@ h3,
   }
 }
 
-/* 4b. PROGRAM DEMOS (pure CSS)
-   The demos build themselves as they scroll into view, using CSS
-   scroll-driven animations. Browsers without support, and visitors who
+/* ---------- 4b. PROGRAM DEMOS (pure CSS) ----------
+   The small demos inside the program cards build themselves as they scroll into view,
+   using CSS scroll-driven animations. Browsers without support, and visitors who
    prefer reduced motion, see the finished demo. */
 .demo {
   background: var(--white);
   border-radius: 20px;
   padding: 14px 16px 16px;
-  box-shadow: 0 1px 0 var(--line), 0 12px 30px -18px rgb(13 0 77 / 0.35);
+  box-shadow:
+    0 1px 0 var(--line),
+    0 12px 30px -18px rgb(13 0 77 / 0.35);
 }
 .demo-bar {
   margin-bottom: 10px;
 }
 .demo-file {
-  font: 500 0.8125rem/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font:
+    500 0.8125rem/1 ui-monospace,
+    "SFMono-Regular",
+    Menlo,
+    Consolas,
+    monospace;
   color: var(--muted);
 }
 
-/* Data Analytics chart */
+/* Data Analytics demo: a bar chart with a trend line */
 .chart {
   display: block;
   width: 100%;
@@ -736,7 +816,7 @@ h3,
   font-size: 1.125rem;
 }
 
-/* Web Development: code + live preview */
+/* Web Development demo: code on one side, the live preview on the other */
 .demo-web {
   container-type: inline-size;
 }
@@ -754,7 +834,12 @@ h3,
   color: #fff;
   border-radius: 14px;
   padding: 14px 16px;
-  font: 400 0.78rem/1.65 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font:
+    400 0.78rem/1.65 ui-monospace,
+    "SFMono-Regular",
+    Menlo,
+    Consolas,
+    monospace;
   overflow-x: auto;
   white-space: pre;
 }
@@ -825,7 +910,7 @@ h3,
   border-radius: 999px;
 }
 
-/* Scroll-driven animation */
+/* Scroll-driven animation: the demos build as you scroll past them */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .demo {
@@ -840,7 +925,8 @@ h3,
     .chart .bars rect {
       animation-name: grow;
       animation-timing-function: cubic-bezier(0.3, 1.3, 0.5, 1);
-      animation-range: cover calc(8% + var(--i) * 3%) cover calc(18% + var(--i) * 3%);
+      animation-range: cover calc(8% + var(--i) * 3%) cover
+        calc(18% + var(--i) * 3%);
     }
     .chart .trend {
       animation-name: draw;
@@ -910,47 +996,47 @@ h3,
   }
 }
 
-/* TABLET */
+/* ---------- TABLET (980px and below) ----------
+   The hero and the internship band stack into one column. */
 @media (max-width: 980px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(
+      0,
+      1fr
+    ); /* minmax(0, ...) lets the column shrink on very small screens */
     gap: 48px;
     padding-block: 64px;
   }
   .intern-in {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 48px;
   }
   .tile-main {
     min-height: 300px;
   }
-  .nav-left,
-  .right {
-    gap: 20px;
-  }
 }
 
-/* PHONE */
-@media (max-width: 760px) {
+/* ---------- HEADER ON TABLETS AND PHONES (980px and below) ----------
+   There are six links now, so on smaller screens they move into a menu.
+   The bar becomes: menu icon | logo | Apply now.
+   The menu works with a hidden checkbox, so it needs no JavaScript. */
+@media (max-width: 980px) {
   .bar {
     gap: 8px;
-    padding: 10px 14px 16px;
-  }
-  .bar::after {
-    left: 20px;
-    right: 20px;
+    padding: 10px calc(var(--pad) - 6px) 16px;
   }
   .nav-left,
   .nav-right {
     display: none;
   }
+  /* The invisible checkbox sits exactly over the menu icon, so taps land on it */
   .menu-toggle {
     display: block;
     position: fixed;
     opacity: 0;
     width: 44px;
     height: 44px;
-    left: 14px;
+    left: calc(var(--pad) - 6px);
     top: 10px;
     margin: 0;
     z-index: 11;
@@ -974,6 +1060,7 @@ h3,
   .right {
     gap: 0;
   }
+  /* The menu list: hidden until the checkbox is ticked */
   .drawer {
     display: none;
     grid-template-columns: 1fr;
@@ -995,6 +1082,11 @@ h3,
     text-decoration: none;
     border-bottom: 1px solid var(--line);
   }
+}
+
+/* ---------- PHONE (760px and below) ----------
+   Tighter spacing, full-width buttons, and the tiles rearranged. */
+@media (max-width: 760px) {
   .hero {
     padding-block: 44px;
   }
@@ -1072,6 +1164,9 @@ h3,
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- HIGH CONTRAST MODE ----------
+   Gives buttons and cards a visible edge for Windows High Contrast users. */
 @media (forced-colors: active) {
   .btn,
   .tile,
@@ -1080,7 +1175,8 @@ h3,
   }
 }
 
-/* Program cards with demos: keep content at the top, link at the bottom */
+/* ---------- PROGRAM CARDS ----------
+   Keep the content at the top of each card and the link at the bottom. */
 .card {
   justify-content: flex-start;
 }
@@ -1088,7 +1184,8 @@ h3,
   margin-top: auto;
 }
 
-/* TABLET + PHONE: centre the content (desktop keeps its left-aligned layout) */
+/* ---------- TABLET AND PHONE: CENTRED CONTENT ----------
+   On smaller screens most text is centred. Desktop keeps its left-aligned layout. */
 @media (max-width: 980px) {
   .hero-text,
   .tile,
@@ -1134,7 +1231,8 @@ h3,
   }
 }
 
-/* PHONE footer: logo on top, Contact and Explore side by side */
+/* ---------- PHONE FOOTER ----------
+   Logo on top, then Contact and Explore side by side. */
 @media (max-width: 760px) {
   .foot {
     grid-template-columns: 1fr 1fr;
@@ -1148,7 +1246,23 @@ h3,
   }
 }
 
-/* TABLET + PHONE: How to apply steps in one centred column */
+.page-programs .foot {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+}
+.page-programs .foot > div:nth-child(2) {
+  justify-items: start;
+  text-align: left;
+}
+.page-programs .foot > div:nth-child(3) {
+  justify-items: start;
+  text-align: left;
+}
+.page-programs .legal {
+  text-align: left;
+}
+
+/* ---------- HOW TO APPLY ON SMALLER SCREENS ----------
+   The three steps become one centred column. */
 @media (max-width: 980px) {
   .steps {
     grid-template-columns: 1fr;
@@ -1157,33 +1271,8 @@ h3,
   }
 }
 
-/* TABLET header: keep links on one line */
-@media (min-width: 761px) and (max-width: 980px) {
-  .bar {
-    gap: 16px;
-  }
-  .nav-left,
-  .nav-right,
-  .right {
-    gap: 16px;
-    font-size: 0.875rem;
-  }
-  .nav-left a,
-  .nav-right a,
-  .btn-sm {
-    white-space: nowrap;
-  }
-  .btn-sm {
-    padding: 10px 16px;
-    font-size: 0.875rem;
-  }
-  .logo img {
-    height: 32px;
-    width: auto;
-  }
-}
-
-/* TABLET + PHONE: About items in one centred column; footer brand on the left */
+/* ---------- ABOUT AND FOOTER LOGO ON SMALLER SCREENS ----------
+   The About blocks become one centred column; the footer logo stays on the left. */
 @media (max-width: 980px) {
   .about {
     grid-template-columns: 1fr;
@@ -1193,5 +1282,27 @@ h3,
   .foot > div:first-child {
     justify-items: start;
     text-align: left;
+  }
+}
+
+/* ---------- VERY SMALL PHONES (380px and below) ----------
+   Makes the header smaller so the menu icon, logo and Apply now button stay on one line,
+   and stacks the three hero tiles. This block is last so it overrides the phone rules above. */
+@media (max-width: 380px) {
+  .tiles {
+    grid-template-columns: minmax(
+      0,
+      1fr
+    ); /* the three tiles stack, so long words like "Development" fit */
+  }
+  .tile-main {
+    grid-column: auto;
+  }
+  .logo img {
+    height: 20px;
+  }
+  .btn-sm {
+    padding: 9px 12px;
+    font-size: 0.8125rem;
   }
 }

@@ -7,30 +7,38 @@
   <title>TechBridge: Bridging Learning to Real-World Experience</title>
   <meta name="description"
     content="TechBridge by Baselink Services Limited offers Data Analytics, Web Development and a 30-Day Practical Internship." />
+  <!-- Fonts: loads the two Google Fonts used on the site (headings and body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Hanken+Grotesk:wght@400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- Styles: connects the CSS file to this page -->
+  <link rel="stylesheet" href="./styles/style.css" />
 </head>
 
 <body>
+  <!-- Skip link: hidden until you press Tab. Lets keyboard users jump past the menu. -->
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- 1. HEADER -->
+  <!-- 1. HEADER: the top bar. Links on both sides of the logo, plus the Apply now button.
+       On tablets and phones the links move into a menu. -->
   <!-- Phone menu: a hidden checkbox + CSS only, no JavaScript -->
   <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open or close the menu" />
   <header class="site-header" id="top">
     <div class="bar">
+      <!-- Menu icon: ticking the checkbox above shows the menu (smaller screens only) -->
       <label class="menu-btn" for="menu-toggle" aria-hidden="true"><svg width="22" height="16" viewBox="0 0 22 16"
           aria-hidden="true">
           <path d="M1 2H21M1 8H21M1 14H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg></label>
+      <!-- Left links. aria-current marks the page you are on. -->
       <nav class="nav-left" aria-label="Main">
-        <a href="#programs">Programs</a><a href="#internship">Internship</a><a href="#apply">How to apply</a>
+        <a href="index.html" aria-current="page">Home</a><a href="programs.html">Programs</a><a
+          href="#internship">Internship</a><a href="#apply">How to apply</a>
       </nav>
       <a class="logo" href="#top"><img src="images/logo.png" alt="TechBridge" width="189" height="40" /></a>
+      <!-- Right links and the main call to action -->
       <div class="right">
         <nav class="nav-right" aria-label="Secondary">
           <a href="#community">Community</a><a href="#contact">Contact</a>
@@ -38,15 +46,19 @@
         <a class="btn btn-sm" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
       </div>
     </div>
+    <!-- The menu that opens on smaller screens: the same links in one list -->
     <nav class="drawer" id="drawer" aria-label="Mobile">
-      <a href="#programs">Programs</a><a href="#internship">Internship</a><a href="#apply">How to apply</a><a
-        href="#community">Community</a><a href="#contact">Contact</a>
+      <a href="index.html" aria-current="page">Home</a><a href="programs.html">Programs</a><a
+        href="#internship">Internship</a><a href="#apply">How to apply</a><a href="#community">Community</a><a
+        href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="main">
-    <!-- 2. HERO -->
+    <!-- 2. HERO: the first thing visitors see. It says what TechBridge is, gives two buttons,
+         and ends with an animated bridge from Learning to Real-World Experience. -->
     <section class="hero">
+      <!-- Hero text: heading, short intro and the two buttons -->
       <div class="hero-text">
         <p class="eyebrow">TechBridge by Baselink Services Limited</p>
         <h1>Bridging Learning to <span>Real-World Experience</span></h1>
@@ -55,12 +67,13 @@
           experience in Data Analytics and Web Development, so you finish with
           real work to show, not just theory.
         </p>
-        <div class="actions">
+        <div class="actions btn-row">
           <a class="btn" href="#apply">Apply for the internship</a>
-          <a class="btn btn-outline" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS?utm_source=chatgpt.com">Join
+          <a class="btn btn-outline" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS">Join
             the community</a>
         </div>
       </div>
+      <!-- Tiles: a quick look at the internship and the two programs -->
       <div class="tiles" aria-label="At a glance">
         <div class="tile tile-main">
           <p class="eyebrow light">Now open</p>
@@ -79,7 +92,7 @@
         </div>
       </div>
 
-      <!-- Animated bridge: Learning to Real-World Experience -->
+      <!-- Animated bridge: draws itself from Learning to Real-World Experience -->
       <div class="bridge" role="img"
         aria-label="A bridge from Learning to Real-World Experience, crossing through projects, mentorship and the internship">
         <div class="bridge-end bridge-start">
@@ -117,9 +130,9 @@
       </div>
     </section>
 
-    <!-- 3. ABOUT -->
-    <section class="about" aria-label="About TechBridge">
-      <div>
+    <!-- 3. ABOUT: three short answers: what TechBridge is, who it is for and why join. -->
+    <section class="about feature-grid" aria-label="About TechBridge">
+      <article class="feature">
         <svg class="node" width="48" height="32" viewBox="0 0 48 32" aria-hidden="true">
           <circle cx="12" cy="16" r="7" fill="none" stroke="#39b80a" stroke-width="3.5" />
           <path d="M19 16H46" stroke="#0d004d" stroke-width="3.5" stroke-linecap="round" />
@@ -129,16 +142,16 @@
           TechBridge by Baselink Services Limited connects learning with
           practical, real-world experience.
         </p>
-      </div>
-      <div>
+      </article>
+      <article class="feature">
         <svg class="node" width="48" height="32" viewBox="0 0 48 32" aria-hidden="true">
           <circle cx="12" cy="16" r="7" fill="none" stroke="#39b80a" stroke-width="3.5" />
           <path d="M19 16H46" stroke="#0d004d" stroke-width="3.5" stroke-linecap="round" />
         </svg>
         <h2>Who it is for</h2>
         <p>Learners and aspiring interns who want to learn by doing.</p>
-      </div>
-      <div>
+      </article>
+      <article class="feature">
         <svg class="node" width="48" height="32" viewBox="0 0 48 32" aria-hidden="true">
           <circle cx="12" cy="16" r="7" fill="none" stroke="#39b80a" stroke-width="3.5" />
           <path d="M19 16H46" stroke="#0d004d" stroke-width="3.5" stroke-linecap="round" />
@@ -148,13 +161,14 @@
           Project-based practice, and the possibility of a recommendation
           letter based on successful participation and performance.
         </p>
-      </div>
+      </article>
     </section>
 
-    <!-- 4. PROGRAMS -->
+    <!-- 4. PROGRAMS: the two programs as cards. Each card has a small live demo. -->
     <section class="programs" id="programs" aria-labelledby="programs-h">
       <h2 class="section-title" id="programs-h">Current programs</h2>
       <div class="cards">
+        <!-- Data Analytics card, with a demo chart that builds itself as you scroll -->
         <article class="card card-green">
           <h3>Data Analytics</h3>
           <p>
@@ -191,6 +205,7 @@
           </div>
           <a class="link" href="#apply">How to apply</a>
         </article>
+        <!-- Web Development card, with a demo where code types itself and becomes a page -->
         <article class="card card-lilac">
           <h3>Web Development</h3>
           <p>
@@ -227,12 +242,13 @@
       </div>
     </section>
 
-    <!-- 5. INTERNSHIP -->
+    <!-- 5. INTERNSHIP: the dark band that explains the 30-Day Practical Internship and what you get. -->
     <section class="internship" id="internship" aria-labelledby="intern-h">
       <div class="intern-in">
         <div>
           <p class="eyebrow light">Internship</p>
           <h2 id="intern-h">30-Day Practical Internship</h2>
+          <!-- The benefits list -->
           <ul class="checks">
             <li>
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
@@ -257,8 +273,9 @@
               </svg><span>Collaborative Learning and Professional Development</span>
             </li>
           </ul>
-          <a class="btn" href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com">Apply for the internship</a>
+          <a class="btn" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply for the internship</a>
         </div>
+        <!-- Big "30 days" box: decoration only, so screen readers skip it -->
         <div class="days" aria-hidden="true">
           <p class="big">30</p>
           <p>days</p>
@@ -266,7 +283,7 @@
       </div>
     </section>
 
-    <!-- 6. HOW TO APPLY -->
+    <!-- 6. HOW TO APPLY: three simple steps: fill in the form, join the community, ask a question. -->
     <section class="apply" id="apply" aria-labelledby="apply-h">
       <h2 class="section-title" id="apply-h">How to apply</h2>
       <ol class="steps">
@@ -274,13 +291,13 @@
           <span class="num">1</span>
           <h3>Fill in the form</h3>
           <p>Complete the TechBridge Internship Application Form.</p>
-          <a class="link" href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com">Open the form</a>
+          <a class="link" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Open the form</a>
         </li>
         <li>
           <span class="num">2</span>
           <h3>Join the community</h3>
           <p>Connect with TechBridge on the WhatsApp community.</p>
-          <a class="link" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS?utm_source=chatgpt.com">Go to the
+          <a class="link" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS">Go to the
             community</a>
         </li>
         <li>
@@ -292,7 +309,7 @@
       </ol>
     </section>
 
-    <!-- 7. COMMUNITY -->
+    <!-- 7. COMMUNITY: invites visitors to join the TechBridge WhatsApp community. -->
     <section class="community" id="community" aria-labelledby="comm-h">
       <div class="comm-in">
         <div>
@@ -302,19 +319,21 @@
             WhatsApp Community.
           </p>
         </div>
-        <a class="btn btn-navy" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS?utm_source=chatgpt.com">Join the
+        <a class="btn btn-navy" href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS">Join the
           WhatsApp community</a>
       </div>
     </section>
   </main>
 
-  <!-- 8. FOOTER -->
+  <!-- 8. FOOTER: the bottom of the page. Logo and tagline, contact details and useful links. -->
   <footer class="site-footer" id="contact">
     <div class="foot">
+      <!-- Logo and tagline -->
       <div>
         <img src="images/logo.png" alt="TechBridge" width="151" height="32" />
         <p>Bridging Learning to Real-World Experience</p>
       </div>
+      <!-- Official contact details only -->
       <div>
         <h2>Contact</h2>
         <a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink<wbr />@gmail.com</a><a
@@ -322,9 +341,10 @@
         <a href="https://www.facebook.com/p/Baselink-Services-100066771475783/" target="_blank"
           rel="noopener">Facebook</a>
       </div>
+      <!-- Quick links to the rest of the site -->
       <div>
         <h2>Explore</h2>
-        <a href="#programs">Programs</a><a href="#internship">Internship</a><a href="#apply">How to apply</a><a
+        <a href="programs.html">Programs</a><a href="#internship">Internship</a><a href="#apply">How to apply</a><a
           href="#community">Community</a>
       </div>
     </div>

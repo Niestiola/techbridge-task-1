@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programs | TechBridge</title>
+  <meta name="description"
+    content="Explore the TechBridge Data Analytics and Web Development programs, compare them and apply for the 30-Day Practical Internship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Hanken+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <!-- Shared styles first (tokens, header, buttons, footer), then this page only -->
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/programs.css" />
+</head>
+
+<body class="page-programs">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- 1. HEADER: the top bar. It is the same on every page: links on both sides of the logo,
+       plus the Apply now button. On tablets and phones the links move into a menu. -->
+  <!-- Phone menu: a hidden checkbox + CSS only, no JavaScript -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open or close the menu" />
+  <header class="site-header" id="top">
+    <div class="bar">
+      <label class="menu-btn" for="menu-toggle" aria-hidden="true"><svg width="22" height="16" viewBox="0 0 22 16"
+          aria-hidden="true">
+          <path d="M1 2H21M1 8H21M1 14H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg></label>
+      <!-- Left links. aria-current marks the page you are on. -->
+      <nav class="nav-left" aria-label="Main">
+        <a href="index.html">Home</a><a href="programs.html" aria-current="page">Programs</a><a
+          href="index.html#internship">Internship</a><a href="index.html#apply">How to apply</a>
+      </nav>
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="TechBridge" width="189" height="40" /></a>
+      <!-- Right links and the main call to action -->
+      <div class="right">
+        <nav class="nav-right" aria-label="Secondary">
+          <a href="index.html#community">Community</a><a href="#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sm" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
+      </div>
+    </div>
+    <!-- The menu that opens on smaller screens: the same links in one list -->
+    <nav class="drawer" id="drawer" aria-label="Mobile">
+      <a href="index.html">Home</a><a href="programs.html" aria-current="page">Programs</a><a
+        href="index.html#internship">Internship</a><a href="index.html#apply">How to apply</a><a
+        href="index.html#community">Community</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- 2. HERO: the first thing visitors see. A big heading, a short intro, two buttons
+         and a picture of a chart and a code window. -->
+    <section class="p-hero" aria-labelledby="hero-h">
+      <div class="p-hero-text">
+        <p class="eyebrow">Programs</p>
+        <h1 id="hero-h">Learn Skills. Build Solutions. <span>Shape Your Future.</span></h1>
+        <p class="lede">
+          Explore practical learning programs designed to help you develop relevant digital skills through
+          hands-on learning, guided activities, and real-world projects.
+        </p>
+        <div class="actions btn-row">
+          <a class="btn" href="#programs">Explore Programs</a>
+          <a class="btn btn-outline" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
+        </div>
+      </div>
+
+      <!-- Hero picture: a chart and a code window drawn with HTML and CSS (no image files) -->
+      <div class="hero-visual" role="img"
+        aria-label="Illustration of a bar chart and a code editor window, representing the Data Analytics and Web Development programs">
+        <div class="vis-chart" aria-hidden="true">
+          <p class="vis-tag">Data Analytics</p>
+          <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="vis-code" aria-hidden="true">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="vis-tag">Web Development</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PROGRAM OVERVIEW: one card for each program, with the same layout so neither looks more important.
+         Each card shows a short description, the core skills and a Learn more link. -->
+    <section class="p-section" id="programs" aria-labelledby="programs-h">
+      <p class="eyebrow">Two learning paths</p>
+      <h2 class="section-title" id="programs-h">Choose where to start</h2>
+      <!-- The two equal program cards -->
+      <div class="paths">
+        <article class="path path--data">
+          <div class="path-label"><svg class="path-icon" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+              <rect x="3" y="15" width="6" height="12" rx="1.5" fill="#39b80a" />
+              <rect x="12" y="8" width="6" height="19" rx="1.5" fill="#0d004d" />
+              <rect x="21" y="3" width="6" height="24" rx="1.5" fill="#39b80a" />
+            </svg>
+            <p class="eyebrow">Learning path: Data</p>
+          </div>
+          <h3>Data Analytics</h3>
+          <p class="path-desc">A practical program that introduces learners to working with data, organising
+            information,
+            identifying patterns and extracting insights that can support business decisions.</p>
+          <h4 class="mini">Core skills</h4>
+          <ul class="chips">
+            <li>Spreadsheet Analysis</li>
+            <li>Data Cleaning</li>
+            <li>SQL</li>
+            <li>Data Visualization</li>
+            <li>Business-Focused Analysis</li>
+          </ul>
+          <p class="path-outcome">You will turn raw data into meaningful information that helps people and organisations
+            make
+            better decisions.</p>
+          <a class="link" href="#data-analytics">Learn more about Data Analytics</a>
+        </article>
+
+        <article class="path path--web">
+          <div class="path-label"><svg class="path-icon" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+              <path d="M10 9L3 15l7 6M20 9l7 6-7 6M17 5l-4 20" fill="none" stroke="#0d004d" stroke-width="2.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="eyebrow">Learning path: Web</p>
+          </div>
+          <h3>Web Development</h3>
+          <p class="path-desc">A practical program that introduces learners to website development and the technologies
+            used to create functional, responsive and interactive web experiences.</p>
+          <h4 class="mini">Core skills</h4>
+          <ul class="chips">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Git/GitHub</li>
+            <li>Building Web Projects</li>
+          </ul>
+          <p class="path-outcome">You will design, build and improve websites and web experiences using modern web
+            technologies.</p>
+          <a class="link link-navy" href="#web-development">Learn more about Web Development</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. PROGRAM DETAILS: explains what each skill is for. Select a skill to open it.
+         This uses the built-in details and summary tags, so it needs no JavaScript. -->
+    <section class="p-section p-section--tight" id="details" aria-labelledby="details-h">
+      <h2 class="section-title" id="details-h">What each skill is for</h2>
+      <p class="p-intro">Select a skill to see what it does in practice.</p>
+      <!-- One box of skills for each program -->
+      <div class="skills">
+        <article class="skill-group skill-group--data" id="data-analytics">
+          <h3>Data Analytics</h3>
+          <details class="skill" open>
+            <summary>Spreadsheet Analysis</summary>
+            <p>Organise numbers in rows and columns, then use formulas and summaries to answer simple questions.</p>
+          </details>
+          <details class="skill">
+            <summary>Data Cleaning</summary>
+            <p>Find and fix errors, duplicates and gaps so the data can be trusted.</p>
+          </details>
+          <details class="skill">
+            <summary>SQL</summary>
+            <p>Ask questions of a database by writing queries that pull out the information you need.</p>
+          </details>
+          <details class="skill">
+            <summary>Data Visualization</summary>
+            <p>Turn figures into charts and dashboards that people can read at a glance.</p>
+          </details>
+          <details class="skill">
+            <summary>Business-Focused Analysis</summary>
+            <p>Connect what the data shows to a decision that someone has to make.</p>
+          </details>
+        </article>
+        <article class="skill-group skill-group--web" id="web-development">
+          <h3>Web Development</h3>
+          <details class="skill" open>
+            <summary>HTML5</summary>
+            <p>The structure and content of a web page: headings, text, links, images and forms.</p>
+          </details>
+          <details class="skill">
+            <summary>CSS3</summary>
+            <p>The look of a page: colours, fonts, layout and how it adapts to different screens.</p>
+          </details>
+          <details class="skill">
+            <summary>JavaScript</summary>
+            <p>Adds behaviour, so a page can respond to what a visitor does.</p>
+          </details>
+          <details class="skill">
+            <summary>Git/GitHub</summary>
+            <p>Track changes to your code, and store and share your projects online.</p>
+          </details>
+          <details class="skill">
+            <summary>Building Web Projects</summary>
+            <p>Put the skills together by making complete websites from start to finish.</p>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. COMPARISON: puts the two programs side by side so visitors can see how they differ.
+         On phones it becomes two stacked cards. -->
+    <section class="p-section p-compare" id="compare" aria-labelledby="compare-h">
+      <h2 class="section-title" id="compare-h">How the two programs differ</h2>
+      <div class="compare">
+        <!-- Row names, shown in the left column on desktop only (screen readers read them from the cards) -->
+        <div class="compare-labels" aria-hidden="true">
+          <span></span>
+          <span>Focus</span>
+          <span>You work with</span>
+          <span>You produce</span>
+          <span>Core skills</span>
+        </div>
+        <article class="compare-col compare-col--data">
+          <h3>Data Analytics</h3>
+          <dl>
+            <div class="row">
+              <dt>Focus</dt>
+              <dd>Working with data, identifying patterns and extracting insights.</dd>
+            </div>
+            <div class="row">
+              <dt>You work with</dt>
+              <dd>Spreadsheets, databases and charts.</dd>
+            </div>
+            <div class="row">
+              <dt>You produce</dt>
+              <dd>Clean data, charts and clear insights.</dd>
+            </div>
+            <div class="row">
+              <dt>Core skills</dt>
+              <dd>Spreadsheet Analysis, Data Cleaning, SQL, Data Visualization, Business-Focused Analysis.</dd>
+            </div>
+          </dl>
+        </article>
+        <article class="compare-col compare-col--web">
+          <h3>Web Development</h3>
+          <dl>
+            <div class="row">
+              <dt>Focus</dt>
+              <dd>Designing and building websites and interactive web experiences.</dd>
+            </div>
+            <div class="row">
+              <dt>You work with</dt>
+              <dd>Code editors, browsers and web projects.</dd>
+            </div>
+            <div class="row">
+              <dt>You produce</dt>
+              <dd>Working, responsive web pages and projects.</dd>
+            </div>
+            <div class="row">
+              <dt>Core skills</dt>
+              <dd>HTML5, CSS3, JavaScript, Git/GitHub, Building Web Projects.</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. HELP VISITORS CHOOSE: two short questions that point visitors to the program that suits their interests. -->
+    <section class="p-section" id="choose" aria-labelledby="choose-h">
+      <h2 class="section-title" id="choose-h">Not sure which one is for you?</h2>
+      <!-- Two choice boxes -->
+      <div class="choices">
+        <div class="choice">
+          <p>Interested in working with information, numbers, trends and business insights?</p>
+          <a class="btn" href="#data-analytics">Explore Data Analytics</a>
+        </div>
+        <div class="choice">
+          <p>Interested in building websites, designing interfaces and writing code?</p>
+          <a class="btn" href="#web-development">Explore Web Development</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FINAL CALL TO ACTION: the closing section. It asks visitors to apply, or go back to the homepage. -->
+    <section class="p-cta" aria-labelledby="cta-h">
+      <h2 id="cta-h">Your Next Step Starts Here.</h2>
+      <p>Choose a learning path that interests you and take the next step towards developing practical digital skills.
+      </p>
+      <div class="cta-actions">
+        <!-- Same official form link as the homepage. Replace here if the form link changes. -->
+        <a class="btn" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply for TechBridge Internship</a>
+        <a class="btn btn-ghost" href="index.html">Return to Homepage</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 8. FOOTER: the bottom of the page. Logo and tagline, official contact details and quick links. -->
+  <footer class="site-footer" id="contact">
+    <div class="foot">
+      <div>
+        <img src="images/logo.png" alt="TechBridge" width="151" height="32" />
+        <p>Bridging Learning to Real-World Experience</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink<wbr />@gmail.com</a>
+        <a href="https://www.linkedin.com/company/techbridge-services/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/p/Baselink-Services-100066771475783/" target="_blank"
+          rel="noopener">Facebook</a>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <a href="index.html">Home</a><a href="programs.html">Programs</a><a
+          href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply for the internship</a>
+      </div>
+    </div>
+    <p class="legal">© 2026 TechBridge by Baselink Services Limited</p>
+  </footer>
+</body>
+
+</html>
