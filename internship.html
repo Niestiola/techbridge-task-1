@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internship Tasks | TechBridge</title>
+  <meta name="description"
+    content="View the TechBridge 30-day internship roadmap, task sequence and progression from beginner to advanced project work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Hanken+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/internship.css" />
+</head>
+
+<body class="page-internship">
+  <!-- Skip link allows keyboard users to jump directly to the main content. -->
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Mobile menu toggle: the checkbox is controlled only with CSS, so no JavaScript is required. -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open or close the menu" />
+
+  <!-- Header: keeps the TechBridge navigation consistent across the site. -->
+  <header class="site-header" id="top">
+    <div class="bar">
+      <label class="menu-btn" for="menu-toggle" aria-hidden="true"><svg width="22" height="16" viewBox="0 0 22 16"
+          aria-hidden="true">
+          <path d="M1 2H21M1 8H21M1 14H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg></label>
+      <nav class="nav-left" aria-label="Main">
+        <a href="index.html">Home</a><a href="programs.html">Programs</a><a href="internship.html" aria-current="page">Internship Tasks</a><a href="index.html#apply">How to apply</a>
+      </nav>
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="TechBridge" width="189" height="40" /></a>
+      <div class="right">
+        <nav class="nav-right" aria-label="Secondary">
+          <a href="index.html#community">Community</a><a href="#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sm" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
+      </div>
+    </div>
+    <nav class="drawer" id="drawer" aria-label="Mobile">
+      <a href="index.html">Home</a><a href="programs.html">Programs</a><a href="internship.html" aria-current="page">Internship Tasks</a><a href="index.html#apply">How to apply</a><a href="index.html#community">Community</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero section: explains the 30-day internship in a quick, high-visibility format. -->
+    <section class="internship-hero" aria-labelledby="internship-hero-title">
+      <div class="journey-copy">
+        <p class="eyebrow">Internship roadmap</p>
+        <h1 id="internship-hero-title">Your 30-day learning journey</h1>
+        <p class="lede">
+          TechBridge is a practical 30-day internship where learners build real web experiences,
+          strengthen their skills, and progress from foundational projects to a complete platform.
+        </p>
+        <div class="actions btn-row">
+          <a class="btn" href="#roadmap">See the task journey</a>
+          <a class="btn btn-outline" href="https://forms.gle/8EbdSy5ttGfLZfjv5">Apply now</a>
+        </div>
+      </div>
+
+      <div class="journey-stats" aria-label="Internship details">
+        <div class="stat-card accent-green">
+          <p class="stat-label">Duration</p>
+          <p class="stat-number">30</p>
+          <p class="stat-note">days</p>
+        </div>
+        <div class="stat-card accent-lilac">
+          <p class="stat-label">Tasks</p>
+          <p class="stat-number">8</p>
+          <p class="stat-note">projects</p>
+        </div>
+        <div class="stat-card accent-indigo">
+          <p class="stat-label">Focus</p>
+          <p class="stat-number">Web</p>
+          <p class="stat-note">development</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview cards: clarify the internship structure, milestones, and progression. -->
+    <section class="internship-overview" aria-labelledby="overview-title">
+      <p class="eyebrow">What the internship includes</p>
+      <h2 id="overview-title">A structured path to practical experience</h2>
+      <div class="overview-grid">
+        <article class="overview-card">
+          <span class="overview-icon">01</span>
+          <h3>Project-based learning</h3>
+          <p>Every task is a hands-on build that helps interns apply HTML, CSS, and web design thinking in a real context.</p>
+        </article>
+        <article class="overview-card">
+          <span class="overview-icon">02</span>
+          <h3>Clear milestones</h3>
+          <p>Each task is introduced on a specific day, so interns know when to move from one build to the next.</p>
+        </article>
+        <article class="overview-card">
+          <span class="overview-icon">03</span>
+          <h3>Growing complexity</h3>
+          <p>The internship gradually becomes more advanced, moving from static pages to interactive pages and a complete platform.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Roadmap / task timeline: shows all eight internship tasks in the expected order. -->
+    <section class="tasks-section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-heading">
+        <p class="eyebrow">The full roadmap</p>
+        <h2 id="roadmap-title">Day 1 to Day 26 progression</h2>
+      </div>
+
+      <div class="timeline" aria-label="Internship task timeline">
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 1</span>
+            <span class="day-pill">Day 1</span>
+          </div>
+          <p class="task-difficulty">Beginner</p>
+          <h3>Build the TechBridge Homepage</h3>
+          <p>Create the first version of the TechBridge website using HTML and CSS.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 2</span>
+            <span class="day-pill">Day 4</span>
+          </div>
+          <p class="task-difficulty">Beginner</p>
+          <h3>Build the TechBridge Programs Experience</h3>
+          <p>Create a Programs experience that presents TechBridge learning programs.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 3</span>
+            <span class="day-pill">Day 8</span>
+          </div>
+          <p class="task-difficulty">Beginner → Intermediate</p>
+          <h3>Build the Internship Tasks Experience</h3>
+          <p>Create an interface that explains the TechBridge internship journey.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 4</span>
+            <span class="day-pill">Day 11</span>
+          </div>
+          <p class="task-difficulty">Intermediate</p>
+          <h3>Build an Interactive Task Tracker</h3>
+          <p>Use JavaScript to add interaction and progress-tracking capabilities.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 5</span>
+            <span class="day-pill">Day 15</span>
+          </div>
+          <p class="task-difficulty">Intermediate</p>
+          <h3>Build the Intern Registration Experience</h3>
+          <p>Create a professional onboarding and registration flow for interns.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 6</span>
+            <span class="day-pill">Day 19</span>
+          </div>
+          <p class="task-difficulty">Intermediate</p>
+          <h3>Build the Task Submission System</h3>
+          <p>Create an interface for preparing and submitting internship work.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 7</span>
+            <span class="day-pill">Day 22</span>
+          </div>
+          <p class="task-difficulty">Advanced Beginner</p>
+          <h3>Build the Intern Dashboard</h3>
+          <p>Create a dashboard containing profile, task, progress, and submission information.</p>
+        </article>
+
+        <article class="task-card">
+          <div class="task-meta">
+            <span class="task-id">Task 8</span>
+            <span class="day-pill">Day 26</span>
+          </div>
+          <p class="task-difficulty">Advanced</p>
+          <h3>Build the Complete TechBridge Internship Platform</h3>
+          <p>Combine all previously developed components into a complete platform.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Next steps callout: reinforces what happens after the foundation tasks. -->
+    <section class="next-steps" aria-labelledby="next-steps-title">
+      <div class="next-copy">
+        <p class="eyebrow">What comes next</p>
+        <h2 id="next-steps-title">The journey builds from simpler pages into a complete experience.</h2>
+        <p>
+          The next milestone after the foundations is Task 4: an interactive tracker that turns static layouts into practical, responsive user experiences.
+        </p>
+      </div>
+      <a class="btn btn-outline" href="#roadmap">Review the roadmap</a>
+    </section>
+  </main>
+
+  <!-- Footer: includes contact details and site links for continuity with the rest of the TechBridge pages. -->
+  <footer class="site-footer" id="contact">
+    <div class="foot">
+      <div>
+        <img src="images/logo.png" alt="TechBridge" width="151" height="32" />
+        <p>Bridging Learning to Real-World Experience</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink<wbr />@gmail.com</a><a
+          href="https://www.linkedin.com/company/techbridge-services/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/p/Baselink-Services-100066771475783/" target="_blank"
+          rel="noopener">Facebook</a>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <a href="index.html">Home</a><a href="programs.html">Programs</a><a href="internship.html">Internship Tasks</a><a href="index.html#apply">How to apply</a>
+      </div>
+    </div>
+    <p class="legal">© 2026 TechBridge by Baselink Services Limited</p>
+  </footer>
+</body>
+
+</html>

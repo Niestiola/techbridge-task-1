@@ -1,0 +1,294 @@
+/* Internship Tasks page styles
+   This file defines the layout for the TechBridge Internship Tasks experience.
+   The structure is intentionally simple so it stays easy to debug and maintain.
+*/
+
+.page-internship main {
+  display: block;
+}
+
+/* Hero section: large intro area with summary stats and clear call-to-action buttons. */
+.internship-hero,
+.internship-overview,
+.tasks-section,
+.next-steps {
+  width: min(1180px, calc(100% - 2 * var(--pad)));
+  margin: 0 auto;
+}
+
+.internship-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: clamp(32px, 4vw, 56px);
+  padding: clamp(48px, 8vw, 96px) 0 32px;
+  align-items: center;
+}
+
+.journey-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.internship-hero h1 {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+}
+
+.internship-hero h1 span {
+  color: var(--green-text);
+}
+
+.journey-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  display: grid;
+  gap: 8px;
+  padding: 28px 20px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0 16px 36px rgba(13, 0, 77, 0.06);
+}
+
+.accent-green {
+  background: linear-gradient(180deg, #f0ffe7 0%, #e8f7e0 100%);
+}
+
+.accent-lilac {
+  background: linear-gradient(180deg, #f5f3ff 0%, #ece9f9 100%);
+}
+
+.accent-indigo {
+  background: linear-gradient(180deg, #f3f4ff 0%, #eeefff 100%);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stat-number {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--indigo);
+  line-height: 1;
+}
+
+.stat-note {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.internship-overview {
+  padding: 28px 0 32px;
+}
+
+/* Overview cards explain the internship structure in a scan-friendly way. */
+.internship-overview h2,
+.tasks-section h2,
+.next-steps h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 6px;
+  margin-bottom: 26px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.overview-card {
+  background: linear-gradient(180deg, var(--white) 0%, #f8f7ff 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.overview-card h3 {
+  font-size: 1.5rem;
+}
+
+.overview-card p {
+  color: var(--muted);
+}
+
+.overview-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--green-card);
+  color: var(--green-text);
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.tasks-section {
+  padding: 32px 0 28px;
+}
+
+/* Timeline layout: the left vertical line visually shows the progression from day 1 to day 26. */
+.section-heading {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(57, 184, 10, 0.8), rgba(13, 0, 77, 0.2));
+}
+
+.task-card {
+  position: relative;
+  margin-left: 36px;
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  padding: 22px 24px 20px;
+  box-shadow: 0 18px 40px rgba(13, 0, 77, 0.05);
+}
+
+.task-card::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 26px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 5px solid var(--white);
+  box-shadow: 0 0 0 2px rgba(57, 184, 10, 0.2);
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.task-id {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.day-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--lavender);
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.task-card h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+}
+
+.task-card p {
+  color: var(--muted);
+}
+
+.task-difficulty {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #edf8ed;
+  color: var(--green-text);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.next-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 42px 0 84px;
+}
+
+/* CTA section: reinforces progression and gives users a clear next step. */
+.next-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.next-copy p:last-child {
+  color: var(--muted);
+  max-width: 52rem;
+}
+
+/* Responsive behavior: stacks content for tablet-sized screens without losing readability. */
+@media (max-width: 840px) {
+  .internship-hero,
+  .overview-grid,
+  .next-steps {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .journey-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .next-steps {
+    padding-top: 18px;
+  }
+}
+
+/* Mobile layout: maintain spacing and card readability on small screens. */
+@media (max-width: 620px) {
+  .journey-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .task-card {
+    margin-left: 22px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+}
